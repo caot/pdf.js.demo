@@ -1,0 +1,7 @@
+{
+  "workbench.colorCustomizations": {
+    "editor.selectionBackground": "#ff000d",
+    "editor.selectionHighlightBackground": "#ff000d",
+},
+"files.trimTrailingWhitespace": true,
+}
