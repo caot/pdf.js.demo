@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+  </header>
+<body>
+  <h1>High DPI Canvas</h1>
+  <p>
+  <a href="https://www.html5rocks.com/en/tutorials/canvas/hidpi/" target="new tab">reference</a><br>
+  https://stackoverflow.com/questions/19142993/how-draw-in-high-resolution-to-canvas-on-chrome-and-why-if-devicepixelratio
+</p>
+
+  <canvas id="the-canvas" class='my-canvas'></canvas>
+
+  <script>
+function setupCanvas(canvas) {
+  // Get the device pixel ratio, falling back to 1.
+  var dpr = window.devicePixelRatio || 1;
+
+  console.log(['dpr:', dpr])
+  // Get the size of the canvas in CSS pixels.
+  var rect = canvas.getBoundingClientRect();
+  // Give the canvas pixel dimensions of their CSS
+  // size * the device pixel ratio.
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  var ctx = canvas.getContext('2d');
+  // Scale all drawing operations by the dpr, so you
+  // don't have to worry about the difference.
+  ctx.scale(dpr, dpr);
+  return ctx;
+}
+
+// Now this line will be the same size on the page
+// but will look sharper on high-DPI devices!
+var ctx = setupCanvas(document.querySelector('.my-canvas'));
+ctx.lineWidth = 5;
+ctx.beginPath();
+ctx.moveTo(100, 100);
+ctx.lineTo(200, 200);
+ctx.stroke();
+  </script>
+</body>
+</html>
