@@ -56,9 +56,15 @@ function renderPage(num) {
 
     //////////////////////////////////////////////////////////
     // https://github.com/mozilla/pdf.js/issues/10509
+    // It is better to set the scale based on the display resolution andzoom level.
+    // Here is a link on How to detect page zoom level in all modern browsers?
+    // https://stackoverflow.com/questions/11996257/the-character-encoding-of-the-html-document-was-not-declared
+
     var scales = { 1: 3.2, 2: 4 },
             defaultScale = 3,
             scale = scales[window.devicePixelRatio] || defaultScale;
+
+            scale *= 4;
 
     var viewport = page.getViewport({ scale: scale });
     canvas.height = viewport.height;
