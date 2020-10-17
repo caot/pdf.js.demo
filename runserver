@@ -1,6 +1,6 @@
 # https://stackoverflow.com/questions/16333790/node-js-quick-file-server-static-files-over-http
 # npm install http-server -g
-http-server ./
+http-server --cors ./
 
 # Python3 equivalent:
 # python -m http.server [port]
