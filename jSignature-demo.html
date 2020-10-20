@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+  </head>
+<style>
+  div.signature {
+    border: 1px solid red;
+    width: 400px;
+    height: 100px;
+  }
+</style>
+  <body>
+    <script src="libs/jquery_1.7.2.js"></script>
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="libs/flashcanvas.js"></script>
+	<![endif]-->
+	<script src="libs/jSignature.js"></script>
+	<div id="signature" class='signature'></div>
+	<script>
+	    $(document).ready(function() {
+        let es = $("#signature");
+        es.jSignature();
+        // $("#signature").jSignature({ height: 400; });
+        // $("#signature").find(".jSignature").css("width", "100%")
+        var arr = es.jSignature('getData', 'native');
+        console.log(['data:',arr])
+
+	    })
+	</script>
+  </body>
+</html>
